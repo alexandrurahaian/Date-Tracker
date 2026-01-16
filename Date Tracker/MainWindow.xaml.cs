@@ -66,7 +66,7 @@ namespace Date_Tracker
 
             foreach (TrackedDate t_date in DateList)
             {
-                t_date.TimeLeft = Utility.GetTimeLeftStr(t_date.Date);
+                t_date.TimeLeft = (t_date.Mode == 1 ? Utility.GetTimeLeftStr(t_date.Date, false) : Utility.GetTimeSinceStr(t_date.Date, false));
             }
         }
 
@@ -123,7 +123,7 @@ namespace Date_Tracker
             if (wasSuccess)
                 DateList.Add(CurrentDate);
 
-            CurrentDate.TimeLeft = Utility.GetTimeLeftStr(CurrentDate.Date, false, (CurrentDate.Mode == 2 ? true : false));
+            CurrentDate.TimeLeft = (CurrentDate.Mode == 1 ? Utility.GetTimeLeftStr(CurrentDate.Date, false) : Utility.GetTimeSinceStr(CurrentDate.Date, false));
             Reset();
         }
 
