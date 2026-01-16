@@ -62,7 +62,7 @@
                     <TextBlock FontFamily="Arial" FontSize="13.5" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}" Height="18">Date label:</TextBlock>
                     <TextBox x:Name="label_box" FontFamily="Arial" TextChanged="label_box_TextChanged" Background="{DynamicResource BackgroundBrush}" FontSize="12" FontWeight="Normal" Foreground="{DynamicResource ForegroundBrush}" BorderBrush="{DynamicResource ForegroundBrush}" TextWrapping="WrapWithOverflow" Width="237" Height="18"/>
                 </StackPanel>
-                <StackPanel x:Name="timezone_panel" Orientation="Horizontal" Margin="184,69,0,78">
+                <StackPanel x:Name="timezone_panel" Visibility="Hidden" Orientation="Horizontal" Margin="184,69,0,78">
                     <TextBlock FontFamily="Arial" FontSize="13.5" FontWeight="Bold">Timezone: </TextBlock>
                     <RadioButton x:Name="use_crnt_timezone_btn" FontFamily="Arial" Margin="5, 0" Content="Use current (GMT+2)" FontSize="12" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}" IsChecked="True" Click="use_crnt_timezone_btn_Click"/>
                     <RadioButton x:Name="use_diff_timezone_btn" FontFamily="Arial" Margin="5, 0" Content="Other" FontSize="12" FontWeight="Bold" Foreground="{DynamicResource ForegroundBrush}" IsChecked="False" Click="use_diff_timezone_btn_Click"/>
