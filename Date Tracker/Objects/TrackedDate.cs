@@ -27,7 +27,7 @@ namespace Date_Tracker.Objects
                 if (IsFavourite)
                     return Colors.Gold;
 
-                if (Date <= DateTime.Now)
+                if (Date <= DateTime.Now && Mode == 1)
                     return Colors.DarkRed;
 
                 return Colors.Transparent;
