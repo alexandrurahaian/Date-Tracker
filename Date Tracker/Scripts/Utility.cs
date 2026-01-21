@@ -43,24 +43,28 @@ namespace Date_Tracker.Scripts
         {
             DateTime now = DateTime.Today;
             if (targetDate > now) return "Date is in the future!";
-            
-            int years = 0, months = 0, days = 0;
 
-            while (targetDate.Year < now.Year)
+            int years = now.Year - targetDate.Year;
+            int months = now.Month - targetDate.Month;
+            int days = now.Day - targetDate.Day;
+
+            if (days < 0)
             {
-                targetDate = targetDate.AddYears(1);
-                years++;
-                Debug.WriteLine($"TARGET YEAR: {targetDate.Year}\nCURRENT YEAR: {now.Year}\nCOUNTED YEARS: {years}");
-            }
-            while (targetDate.Month < now.Month)
-            {
-                targetDate = targetDate.AddMonths(1);
-                months++;
-                Debug.WriteLine($"TARGET MONTH: {targetDate.Month}\nCURRENT MONTH: {now.Month}\nCOUNTED MONTHS: {months}");
+                months--;
+                var prevMonth = now.AddMonths(-1);
+                days += DateTime.DaysInMonth(prevMonth.Year, prevMonth.Month);
             }
 
-            days = (now - targetDate).Days;
-            return (compact ? $"{years}y {months}m {days}d since" : $"{years} years {months} months {days} days since");
+            if (months < 0)
+            {
+                years--;
+                months += 12;
+            }
+
+            return compact
+                ? $"{years}y {months}m {days}d since"
+                : $"{years} years {months} months {days} days since";
         }
+
     }
 }
