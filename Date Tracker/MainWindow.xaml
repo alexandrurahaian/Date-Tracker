@@ -9,6 +9,7 @@
         Foreground="{DynamicResource ForegroundBrush}"
         Title="Date Tracker" Height="700" Width="500"
         MouseDown="Window_MouseDown"
+        Icon="/Assets/logo.ico"
         >
     <Window.Resources>
         <DataTemplate x:Key="timeLeftTemplate">
